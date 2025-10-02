@@ -1,0 +1,73 @@
+/* Login.css */
+
+/* 1. Estilo para el cuerpo (body) de la página */
+/* Centra el formulario vertical y horizontalmente en la pantalla */
+body {
+    min-height: 100vh;
+    display: flex;
+    align-items: center; /* Centrado vertical */
+    justify-content: center; /* Centrado horizontal */
+    background-color: #f0f2f5; /* Un fondo gris claro */
+    margin: 0; /* Asegura que no haya márgenes por defecto */
+}
+
+/* 2. Estilo para el contenedor principal del login (la tarjeta) */
+/* Usamos una clase personalizada para aplicar estilos específicos de ancho/margen */
+.login-card {
+    /* Define el ancho máximo (reemplaza el estilo inline anterior) */
+    max-width: 400px;
+    width: 90%; /* Asegura que se vea bien en móviles */
+    /* Mejora la apariencia de la tarjeta de Bootstrap */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 30px !important;
+}
+
+/* 3. Estilo para el título */
+.login-card h2 {
+    color: #1877f2; /* Color principal de marca */
+    font-weight: 700;
+    margin-bottom: 25px !important;
+}
+
+/* 4. Estilo para los campos de input */
+.form-control {
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    border-color: #1877f2;
+    box-shadow: 0 0 0 0.2rem rgba(24, 119, 242, 0.25);
+}
+
+/* 5. Estilo para el botón de Entrar */
+.btn-primary {
+    padding: 10px 15px;
+    font-weight: bold;
+    border-radius: 6px;
+    background-color: #1877f2;
+    border-color: #1877f2;
+}
+
+.btn-primary:hover {
+    background-color: #166fe5;
+    border-color: #166fe5;
+}
+
+/* 6. Estilo para el mensaje de error */
+.alert-danger {
+    border-radius: 6px;
+    font-size: 0.9rem;
+    padding: 10px;
+}
+
+/* 7. Estilo para el texto de prueba */
+.login-card small {
+    color: #606770;
+    font-size: 0.85rem;
+}

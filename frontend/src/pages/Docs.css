@@ -1,0 +1,135 @@
+/* Docs.css */
+
+/* Variables de Color (Usando colores limpios y profesionales) */
+:root {
+    --color-page-bg: #f4f7f9; /* Fondo muy claro, tipo papel */
+    --color-text-main: #333;   /* Texto principal oscuro */
+    --color-primary-blue: #007bff; /* Azul de énfasis para tecnología */
+    --color-border-light: #e0e0e0; /* Borde sutil */
+    --color-card-bg: #ffffff; /* Fondo de tarjeta blanco */
+}
+
+/* Base de la Página */
+body {
+    background-color: var(--color-page-bg);
+    color: var(--color-text-main);
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+.docs-container {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background-color: var(--color-card-bg);
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05); /* Sombra suave */
+}
+
+/* ------------------------------------- */
+/* ENCABEZADO */
+/* ------------------------------------- */
+
+.docs-header {
+    padding: 20px 0;
+    margin-bottom: 20px;
+    border-bottom: 2px solid var(--color-border-light);
+    text-align: center;
+}
+
+.docs-header h1 {
+    font-size: 2.5rem;
+    color: var(--color-primary-blue);
+    margin-bottom: 5px;
+}
+
+.docs-header .subtitle {
+    font-size: 1.1rem;
+    color: #6c757d;
+}
+
+/* ------------------------------------- */
+/* CONTENIDO DE LA DOCUMENTACIÓN */
+/* ------------------------------------- */
+
+.docs-content {
+    padding: 20px 0;
+}
+
+.docs-content h2 {
+    font-size: 1.8rem;
+    color: var(--color-text-main);
+    margin-bottom: 15px;
+    border-left: 5px solid var(--color-primary-blue);
+    padding-left: 10px;
+}
+
+/* Lista de Profundización (Áreas) */
+.docs-list {
+    list-style: none; /* Eliminar viñetas por defecto */
+    padding: 0;
+    margin-top: 20px;
+}
+
+.list-item {
+    background-color: #f8f9fa; /* Fondo ligeramente gris para cada elemento */
+    border: 1px solid var(--color-border-light);
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 15px;
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.list-item:hover {
+    box-shadow: 0 2px 8px rgba(0, 123, 255, 0.1);
+    transform: translateY(-2px); /* Efecto sutil al pasar el ratón */
+}
+
+.list-title {
+    font-size: 1.3rem;
+    color: var(--color-primary-blue);
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.list-description {
+    margin: 0;
+    color: var(--color-text-main);
+    font-size: 0.95rem;
+}
+
+/* Estilos para los elementos en negrita (simulando etiquetas) */
+.list-description b {
+    color: #28a745; /* Color verde para resaltar términos clave */
+    font-weight: 600;
+}
+
+/* ------------------------------------- */
+/* PIE DE PÁGINA */
+/* ------------------------------------- */
+
+.docs-footer {
+    padding-top: 20px;
+    border-top: 1px dashed var(--color-border-light);
+    text-align: center;
+    margin-top: 30px;
+}
+
+.docs-footer p {
+    color: #6c757d;
+    font-style: italic;
+    font-size: 0.9rem;
+}
+
+/* Media Query para móvil */
+@media (max-width: 600px) {
+    .docs-container {
+        margin: 20px;
+        padding: 15px;
+    }
+    .docs-header h1 {
+        font-size: 2rem;
+    }
+}

@@ -1,0 +1,134 @@
+/* Dashboard.css */
+
+/* Variables para mantener la consistencia */
+:root {
+    --color-bg-light: #f4f7f9;
+    --color-primary-blue: #007bff;
+    --color-success-green: #28a745;
+    --color-danger-red: #dc3545;
+    --color-text-main: #333;
+    --color-border-light: #dee2e6;
+    --color-card-bg: #ffffff;
+}
+
+/* 1. Fondo de la Página y Centrado */
+body {
+    background-color: var(--color-bg-light);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    min-height: 100vh;
+    padding-top: 20px;
+}
+
+/* 2. Contenedor Principal (Tarjeta) */
+.dashboard-card {
+    /* Reemplaza el estilo inline */
+    max-width: 600px; 
+    width: 95%; /* Responsive */
+    padding: 30px !important;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-card-bg);
+}
+
+.dashboard-title {
+    color: var(--color-primary-blue);
+    font-weight: 600;
+    font-size: 2rem;
+}
+
+/* 3. Sección de Agregar Item */
+.add-item-section {
+    margin-bottom: 25px !important;
+}
+
+.add-item-section .form-control {
+    border-radius: 6px;
+    padding: 10px 15px;
+    border: 1px solid var(--color-border-light);
+}
+
+.add-button {
+    background-color: var(--color-success-green);
+    border-color: var(--color-success-green);
+    font-weight: bold;
+    border-radius: 6px;
+    min-width: 100px; /* Asegura un ancho mínimo para el botón */
+}
+
+.add-button:hover:not(:disabled) {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
+/* 4. Mensaje de Error */
+.error-alert {
+    border-radius: 6px;
+    font-size: 0.95rem;
+    padding: 10px;
+    margin-bottom: 25px;
+}
+
+/* 5. Estilo de la Lista de Items */
+.data-list {
+    border-radius: 8px;
+    overflow: hidden; /* Para que los bordes de la lista sean redondeados */
+    border: 1px solid var(--color-border-light);
+}
+
+.list-item {
+    border-left: 5px solid transparent; /* Espacio para indicador visual */
+    transition: background-color 0.2s ease, border-left-color 0.2s ease;
+    padding: 15px 20px;
+}
+
+.list-item:hover {
+    background-color: #f8f9fa;
+    border-left-color: var(--color-primary-blue); /* Resaltar el item al pasar el ratón */
+}
+
+.item-text {
+    font-size: 1rem;
+    color: var(--color-text-main);
+    flex-grow: 1; /* Permite que el texto ocupe el espacio disponible */
+}
+
+.item-index {
+    font-size: 0.8rem;
+    min-width: 25px;
+    text-align: right;
+}
+
+/* 6. Botón de Eliminar */
+.remove-button {
+    font-size: 0.85rem;
+    padding: 4px 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+}
+
+.remove-button:hover:not(:disabled) {
+    background-color: var(--color-danger-red);
+    color: white;
+}
+
+.loading-item, .empty-list {
+    font-style: italic;
+    color: #6c757d !important;
+    padding: 15px;
+}
+
+/* Media Query para responsividad */
+@media (max-width: 500px) {
+    .dashboard-card {
+        padding: 20px !important;
+    }
+    .item-actions {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+    }
+    .item-index {
+        margin-left: 0 !important;
+        margin-top: 5px;
+    }
+}

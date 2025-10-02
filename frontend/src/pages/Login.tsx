@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
+import './Login.css'; // <--- Importación del CSS
 
 export default function Login() {
   const [user, setUser] = useState('');
   const [pass, setPass] = useState('');
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState<string|null>(null);
+  const [error, setError] = useState<string | null>(null);
 
   const handleLogin = async () => {
     setLoading(true);
@@ -29,7 +30,8 @@ export default function Login() {
   };
 
   return (
-    <div className="card shadow p-4 mx-auto" style={{maxWidth: 400, marginTop: 60}}>
+    // Se elimina el estilo inline (maxWidth y marginTop) y se deja solo la clase
+    <div className="card shadow p-4 mx-auto login-card">
       <h2 className="mb-4 text-center">Iniciar Sesión</h2>
       <div className="mb-3">
         <input
