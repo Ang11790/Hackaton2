@@ -3,8 +3,12 @@ import React, { useState } from 'react';
 export default function Login() {
   const [user, setUser] = useState('');
   const [pass, setPass] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string|null>(null);
 
   const handleLogin = async () => {
+    setLoading(true);
+    setError(null);
     try {
       const res = await fetch('http://localhost:4000/api/login', {
         method: 'POST',
@@ -12,24 +16,54 @@ export default function Login() {
         body: JSON.stringify({ user, pass })
       });
       const data = await res.json();
-      if (res.ok) {
+      if (res.ok && data.token) {
         localStorage.setItem('token', data.token);
         window.location.href = '/dashboard';
       } else {
-        alert(data.message || 'Error en login');
+        setError(data.message || 'Error en login');
       }
     } catch (err) {
-      alert('No se pudo conectar al backend.');
+      setError('No se pudo conectar al backend.');
     }
+    setLoading(false);
   };
 
   return (
-    <div className="card p-4" style={{maxWidth: 480}}>
-      <h2>Iniciar Sesión</h2>
-      <input className="form-control mb-2" placeholder="Usuario" value={user} onChange={e=>setUser(e.target.value)} />
-      <input className="form-control mb-2" type="password" placeholder="Contraseña" value={pass} onChange={e=>setPass(e.target.value)} />
-      <button className="btn btn-primary" onClick={handleLogin}>Entrar</button>
-      <p className="mt-2"><small>Prueba: user=admin, pass=1234</small></p>
+    <div className="card shadow p-4 mx-auto" style={{maxWidth: 400, marginTop: 60}}>
+      <h2 className="mb-4 text-center">Iniciar Sesión</h2>
+      <div className="mb-3">
+        <input
+          className="form-control"
+          placeholder="Usuario"
+          value={user}
+          onChange={e => setUser(e.target.value)}
+          disabled={loading}
+        />
+      </div>
+      <div className="mb-3">
+        <input
+          className="form-control"
+          type="password"
+          placeholder="Contraseña"
+          value={pass}
+          onChange={e => setPass(e.target.value)}
+          disabled={loading}
+        />
+      </div>
+      <button
+        className="btn btn-primary w-100"
+        onClick={handleLogin}
+        disabled={loading || !user || !pass}
+      >
+        {loading ? (
+          <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+        ) : null}
+        Entrar
+      </button>
+      {error && (
+        <div className="alert alert-danger mt-3" role="alert">{error}</div>
+      )}
+      <p className="mt-3 text-center"><small>Prueba: <b>user=admin</b>, <b>pass=1234</b></small></p>
     </div>
   );
 }

@@ -17,25 +17,28 @@ app.post("/api/login", (req, res) => {
 });
 
 // CRUD
-app.get("/api/data", (req, res) => res.json(items));
+app.get("/api/data", (req, res) => {
+  res.json(items);
+});
 
 app.post("/api/data", (req, res) => {
   const { item } = req.body;
-  if (item) items.push(item);
+  if (!item) return res.status(400).json({ success: false, message: "Falta el campo 'item'" });
+  items.push(item);
   res.json(items);
 });
 
 app.put("/api/data/:id", (req, res) => {
   const id = Number(req.params.id);
   const { item } = req.body;
-  if (!Number.isFinite(id) || !items[id]) return res.status(400).json({ error: "id inválido" });
+  if (!Number.isFinite(id) || !items[id]) return res.status(400).json({ success: false, message: "id inválido" });
   items[id] = item;
   res.json(items);
 });
 
 app.delete("/api/data/:id", (req, res) => {
   const id = Number(req.params.id);
-  if (!Number.isFinite(id) || !items[id]) return res.status(400).json({ error: "id inválido" });
+  if (!Number.isFinite(id) || !items[id]) return res.status(400).json({ success: false, message: "id inválido" });
   items.splice(id, 1);
   res.json(items);
 });
