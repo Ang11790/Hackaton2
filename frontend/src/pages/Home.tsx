@@ -91,9 +91,6 @@ export default function Home() {
       </section>
 
       {/* Pie de página simple para completar la estructura */}
-      <footer className="footer">
-        <p>&copy; 2025 Plataforma IA. Todos los derechos reservados.</p>
-      </footer>
     </div>
   );
 }
